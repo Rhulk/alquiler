@@ -1,0 +1,162 @@
+/*Eliminamos los margenes y paddings que agrega el navegador por defecto*/
+* {
+    padding: 0;
+    margin: 0;
+  }
+  .menu {
+    margin-bottom: -24px;
+    margin-top: -7px;
+    
+  }
+  .idioma {
+    color: #fff !important;
+    margin-left: 495px;/* Buscar otra opcion*/
+  }
+  .idioma-activo{
+    color: #fff;
+    border: 1px solid #343232;
+    padding: 3px;
+    align-content: center;
+    margin-top: -29px;
+  }
+  
+  .idioma:hover {
+   /* color: rgb(216, 15, 15) !important;
+   /* margin-left: 495px;/* Buscar otra opcion*/
+   /* background: #363636 !important;*/
+   /* width: 100px!important;
+    height: 90px!important;*/
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 115% !important;
+
+  }
+
+  .dropdown-item-idioma {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529 !important;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+  }
+  .dropdown-item-idioma:hover {
+    color: green !important;
+    background-color: rgb(41, 39, 39) !important;
+    font-size: 115%;
+    font-family: fantasy;
+  }
+  /* ============ Solo para tamaño pantalla superior a 992 ============ */
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{
+     display: none; 
+  }
+	.navbar .nav-item:hover .dropdown-menu{
+     display: block; 
+  }
+	.navbar .nav-item .dropdown-menu{
+     margin-top:0; /* evita el espacio muerto del hovers*/
+  }
+
+}	
+/* ============ desktop view .end// ============ */
+   
+  /*Agregamos margenes inferiores a los parrafos*/
+  p {
+    margin-bottom: 20px;
+  }
+
+  header {
+    background: rgba(0,0,0,0.9);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+  }
+.nav-principal {
+  float: left; /* Desplazamos el nav hacia la izquierda */
+}
+.nav-principal-ul{
+  list-style: none;
+  overflow: hidden; /* Limpiamos errores de float */
+}
+.nav-principal-ul-li{
+  list-style: none;
+  overflow: hidden; /* Limpiamos errores de float */
+}
+.nav-principal-ul-li-a {
+  display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+  padding: 20px;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.nav-principal-ul-li:hover {
+  background: #087711;
+  width: 180px;;
+  height: 90px;
+  font-family: fantasy;
+  font-size: 150%;
+}
+
+
+nav {
+  float: left; /* Desplazamos el nav hacia la izquierda */
+}
+ 
+nav ul {
+  list-style: none;
+  overflow: hidden; /* Limpiamos errores de float */
+}
+ 
+nav ul li {
+  float: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;*/
+}
+ 
+nav ul li a {
+  display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+  padding: 20px;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+nav dl dd a { /* idioma */
+  display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+  padding: 20px;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+ 
+nav ul li:hover {
+  background: #087711;
+  width: 180px;;
+  height: 90px;
+  font-family: fantasy;
+  font-size: 150%;
+ 
+}
+
+
+.navbar-logo{
+    display: inline-block;
+    vertical-align: middle;
+    width: 170px;
+  }
+  .navbar-logo img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+.contenido {
+    padding-top: 80px;
+}
+.wrapper {
+    width: 80%;
+    margin: auto;
+    overflow:hidden;
+}
+
+  

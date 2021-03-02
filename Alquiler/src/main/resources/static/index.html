@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css"> <!-- Problema bajo del sobre-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+    
+
+    <!-- Propios CSS -->
+    <link href="/bike/css/fecha.css" rel="stylesheet"  crossorigin="anonymous">
+    <link href="/bike/css/select.css" rel="stylesheet"  crossorigin="anonymous">
+    <link href="/bike/css/form.css" rel="stylesheet"  crossorigin="anonymous">
+    <link href="/bike/css/menu.css" rel="stylesheet" crossorigin="anonymous">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
+
+<title>Alquiler Bike </title>
+</head>
+
+<header>
+	<nav class="navbar navbar-default navbar-fixed-top tm_navbar ">
+
+		<ul>
+      <li>
+        <a class="navbar-logo" href="#">
+          <img src="imagen/bike/logo_bbb_white.png" alt="logo"></img>
+        </a>
+      </li>
+			<li ><a id="id_alquiler" href="/bike/alquiler.html">Alquiler Bike</a></li>
+			<li ><a id="id_tarifas" href="#">Tarifas</a></li>
+			<li ><a id="id_rutas" href="#">Rutas</a></li>
+			<li ><a id="id_contacto" href="/bike/contac.html">Contacto</a></li>
+		</ul>
+  
+    <dl class="idioma">
+      <dd class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Idioma</a>
+        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+          <a id="idioma_1" class="dropdown-item-idioma" href="#" onclick="getIdioma(this.id)">Castellano</a>
+          <a id="idioma_2" class="dropdown-item-idioma" href="#" onclick="getIdioma(this.id)">Ingles</a>
+          <a id="idioma_3" class="dropdown-item-idioma" href="#" onclick="getIdioma(this.id)">Frances</a>      
+          <a id="idioma_4" class="dropdown-item-idioma" href="#" onclick="getIdioma(this.id)">Aleman</a>
+          <a id="idioma_5" class="dropdown-item-idioma" href="#" onclick="getIdioma(this.id)">Portugues</a>   
+        </div>
+        
+      </dd>
+    </dl>
+    <div id="mostrarIdioma" class="idioma-activo">  Castellano  </div>
+	</nav>
+
+  
+</header>
+
+<body>
+  <div class="in-line">
+
+    <div>
+      <h1 id="id_montar" class="titulo-fecha logo-cabecera-izq"> ¿Cuando quiere montar?</h1> 
+    </div>
+    <div>
+      <img class="titulo-fecha logo-cabecera" src="imagen/bike/cuando.png" alt="Cuando"></img>
+    </div>
+  </div>
+<div class="container-fluid px-0 px-sm-4 mx-auto">
+
+    <div class="row justify-content-center mx-0">
+        <div class="col-lg-10">
+            <div class="card border-0">
+                <form autocomplete="off">
+                    <div class="card-header bg-dark">
+                        <div class="mx-0 mb-0 row justify-content-sm-center justify-content-start px-1">
+                            <input  onclick="cambiaDefectoInicio('input-inicio')" type="text" id="dp1" class="datepicker id_fecha_inicio" placeholder="Elegir Fecha inicio" name="date" readonly>
+                            <span class="fa fa-calendar"></span> 
+                            <div class="col-md-2 col-4 my-1 px-2 ">
+                                <div id="selectHoraInicio" onclick="loadHorasInicio()"   class="cell-select py-1 hora-select-false">Hora</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="listaHorasInicio" class="card-body p-3 p-sm-5">
+
+                    </div>
+
+                    <div class="card-header bg-dark">
+                      <div class="mx-0 mb-0 row justify-content-sm-center justify-content-start px-1">
+                          <input  onclick="cambiaDefectoInicio('input-hasta')" type="text" id="dp2" class="datepicker id_fecha_hasta" placeholder="Elegir Fecha hasta" name="date" readonly>
+                          <span class="fa fa-calendar"></span> 
+                          <div class="col-md-2 col-4 my-1 px-2 ">
+                              <div id="selectHoraHasta" onclick="loadHorasHasta()" class="cell-select py-1 hora-select-false">Hora</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="listaHorasHasta" class="card-body p-3 p-sm-5">
+
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="in-line">
+
+      <div>
+        <h1 id="id_bike_disponible" class="titulo-bici logo-cabecera-izq-bici"> Bicis disponibles</h1> 
+      </div>
+      <div>
+        <img class="titulo-bici logo-cabecera-bici" src="imagen/bike/disponible-bike.png" alt="Cuando"></img>
+      </div>
+    </div>
+    <form name="form">
+      <div class="in-line">
+        <div >
+          <select id="idLugar" name="lugar" class="select-css" onchange="loadLugar()">
+              <option id="id_lugarRecogida" value="0">Lugar recogida</option>
+              <option  value="1">Los Molinos (dirección)</option>
+              <option  value="2">Escorial (dirección)</option>
+            </select>
+        </div>
+
+        <div>
+          <select id="idTalla" name="talla" class="select-css" onchange="loadTalla()">
+              <option id="id_talla" value="0">Talla</option>
+              <option value="1">S</option>
+              <option value="2">M</option>
+              <option value="3">L</option>
+              <option value="4">XL</option>   
+            </select>
+        </div>
+        <div>
+            <select id="idBike" name="bike" class="select-css" onchange="loadBike()">
+                <option id="id_bike" value="0">Bici elegida</option>
+                <option  value="1">Specialized TURBO LEVO COMP 29 MTB E-Bike</option>
+                <option  value="2">Bike 2</option>
+                <option  value="3">Bike 3</option>
+                <option  value="4">Bike 4</option>   
+                <option  value="5">Bike 5</option>
+              </select>
+        </div>
+        <div>
+          <select id="idPedal" name="pedal" class="select-css" onchange="loadPedal()">
+              <option id="id_tipo_pedal" value="0">Tipo Pedal</option>
+              <option value="1">Normal "Plataforma"</option>
+              <option value="2">Automatico MTB "SPD Shimano"</option>
+              <option value="3">Automatico Carretera "Look"</option>
+          </select>
+        </div> 
+        <div>
+          <select id="idCasco" name="casco" class="select-css" onchange="loadCasco()">
+              <option id="id_casco_0" value="0">Casco</option>
+              <option id="id_casco_1" value="1">Si, necesito uno.</option>
+              <option id="id_casco_2" value="2">No, ya lo tengo.</option>
+          </select>
+        </div>   
+
+      </div>
+
+
+      <div class="row">
+          <div class="col caja">  
+              <img style="text-align: center;" id="imgBike" src="imagen/bike/imagen0.jpg" alt="Bike" width="50%" height="50%">
+          </div>
+          <div id="infoTecnica" class="col caja">
+              <span>
+                  Información tecnica de la bici..
+              </span>
+          </div>
+      </div>
+    </form>
+
+    <h2 id="id_datos_personales" class="titulo-datos-personales"> Complete sus datos personales</h2>
+    <!-- Sobre-->
+    <div id="container"></div>
+    <script id="template">
+      <div class="flip-card" on-click="toggle('flipCard')">
+        {{ flipCard ? 'Reset' : 'Animate' }}
+      </div>
+        <div class="envelope {{ flipCard ? 'activo' : '' }}">
+          <div class="back paper"></div>
+          <div class="content">
+            <div class="form-wrapper">
+              <form>
+                <div class="top-wrapper">
+                  <div class="input">
+                    <label>Name</label>
+                    <input type="text" name="name"/>
+                  </div>
+                  <div class="input">
+                    <label>Phone</label>
+                    <input type="text" name="phone"/>
+                  </div>
+                  <div class="input">
+                    <label>Email</label>
+                    <input type="text" name="_replyto"/>
+                  </div>
+                </div>
+                <div class="bottom-wrapper">
+                  <div class="input">
+                    <label>Subject</label>
+                    <input type="text" name="_subject"/>
+                  </div>
+                  <div class="input">
+                    <label>Message</label>
+                    <textarea rows="5" name="message"></textarea>
+                  </div>
+                  <div class="submit">
+                    <div class="submit-card" on-click="toggle('flipCard')">Send Mail</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="front paper"></div>
+        </div>
+      
+        
+  </script>
+
+  <!-- Fin sobre-->
+
+</div>
+
+    <!-- ractive -->
+    <script src='https://cdn.jsdelivr.net/npm/ractive@0.9'></script>
+
+    <!-- Script Propios-->
+    <script src="/bike/js/fecha.js"> </script>
+    <script src="/bike/js/select.js"></script>
+    <script src="/bike/js/formulario.js"></script>
+    <script src="/bike/js/menu.js"></script>
+    
+</body>
+</html>
