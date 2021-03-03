@@ -23,7 +23,7 @@ public class BikeController {
 	List<Integer> bicis = new LinkedList<Integer>();
 	
 	@GetMapping("/disponibles")
-	public List<Integer> greeting(@RequestParam(value = "fechas") List<Date> fechas) {
+	public List<Integer> bikeDisponibles(@RequestParam(value = "fechas") List<Date> fechas) {
 		
 		return bicis;
 	}
