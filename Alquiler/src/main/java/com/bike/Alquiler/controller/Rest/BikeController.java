@@ -23,7 +23,12 @@ public class BikeController {
 	List<Integer> bicis = new LinkedList<Integer>();
 	
 	@GetMapping("/disponibles")
-	public List<Integer> bikeDisponibles(@RequestParam(value = "fechas") List<Date> fechas) {
+	public List<Integer> bikeDisponibles(@RequestParam(value = "fechaInicio") Date fechainicio, @RequestParam(value = "fechafin") Date fechafin) {
+		
+		/*
+		 * Simular JPA
+		 */
+		
 		
 		return bicis;
 	}
