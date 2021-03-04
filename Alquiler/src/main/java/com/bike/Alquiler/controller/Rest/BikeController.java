@@ -34,7 +34,7 @@ public class BikeController {
 	int [] bikeDisponibles;
 	
 	public BikeController() {
-		
+		bikeDisponibles = new int[10];
 		bikeDisponibles[0] = 0;
 		bikeDisponibles[1] = 1;
 		bikeDisponibles[2] = 2;
@@ -50,7 +50,7 @@ public class BikeController {
 		/*
 		 * Simular JPA
 		 */
-		while(true){
+/*		while(true){
 			// recuperar id_bike que no este en el rango de fechas del while
 			
 		// recuperar por sql los que no estan en el rango de fechas.
@@ -59,8 +59,8 @@ public class BikeController {
 			fechainicio = new Date(fechainicio.getTime() + TimeUnit.DAYS.toMillis( 1 ));
 			if(fechainicio == fechafin)
 				break;
-
 		}
+	*/
 		
 		
 		return bicis;
@@ -86,18 +86,20 @@ public class BikeController {
 			Reserva res1 = new Reserva();
 			res1.setId_reserva(1);
 			res1.setId_bike(1);
-			res1.setFecha(formatear.parse("04-03-2021"));
-
+			res1.setFecha_desde(formatear.parse("04-03-2021"));
+			res1.setFecha_hasta(formatear.parse("05-03-2021"));
 
 			Reserva res2 = new Reserva();
 			res2.setId_reserva(2);
 			res2.setId_bike(2);
-			res2.setFecha(formatear.parse("04-03-2021"));
+			res2.setFecha_desde(formatear.parse("05-03-2021"));
+			res2.setFecha_hasta(formatear.parse("07-03-2021"));
 			
 			Reserva res3 = new Reserva();
 			res3.setId_reserva(3);
 			res3.setId_bike(3);
-			res3.setFecha(formatear.parse("05-03-2021"));
+			res3.setFecha_desde(formatear.parse("04-03-2021"));
+			res3.setFecha_hasta(formatear.parse("08-03-2021"));
 			
 			reservas.add(res1);
 			reservas.add(res2);
