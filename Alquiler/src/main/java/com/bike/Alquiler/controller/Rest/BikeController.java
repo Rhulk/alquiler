@@ -26,9 +26,9 @@ public class BikeController {
 	public List<Integer> bikeDisponibles(@RequestParam(value = "fechaInicio") Date fechainicio, @RequestParam(value = "fechafin") Date fechafin) {
 		
 		/*
-		 * Simular JPA
+		 * Simular JPA 	dd	dd
 		 */
-		
+	
 		
 		return bicis;
 	}
