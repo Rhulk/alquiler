@@ -65,49 +65,8 @@ public class BikeController {
 		return bikeDisponibles;
 	}
 	
-	private List<Reserva> getLista(){
-		System.out.println(" GetLista ");
-		SimpleDateFormat formatear = new SimpleDateFormat("dd-mm-yyyy");
-		List<Reserva> reservas = new LinkedList<Reserva>();
+
 		
-		try {
-			
-			Reserva res1 = new Reserva();
-			res1.setId_reserva(1);
-			res1.setId_bike(1);
-			res1.setFecha_desde(formatear.parse("04-03-2021"));
-			res1.setFecha_hasta(formatear.parse("05-03-2021"));
-
-			Reserva res2 = new Reserva();
-			res2.setId_reserva(2);
-			res2.setId_bike(2);
-			res2.setFecha_desde(formatear.parse("05-03-2021"));
-			res2.setFecha_hasta(formatear.parse("07-03-2021"));
-			
-			Reserva res3 = new Reserva();
-			res3.setId_reserva(3);
-			res3.setId_bike(3);
-			res3.setFecha_desde(formatear.parse("04-03-2021"));
-			res3.setFecha_hasta(formatear.parse("08-03-2021"));
-			
-			reservas.add(res1);
-			reservas.add(res2);
-			reservas.add(res3);
-
-
-			return reservas;
-			
-		}catch(ParseException e){
-			System.out.println("Peto: "+e);
-			return null;
-		}catch(NullPointerException nu) {
-			System.out.println(" Localizacion "+nu.getLocalizedMessage());
-			System.out.println(" Mensaje : "+nu.getMessage());
-			System.out.println(" Causa : "+nu.getCause());
-			System.out.println(" Error : "+nu);
-			return null;
-		}
-		
-	}
+	
 
 }
