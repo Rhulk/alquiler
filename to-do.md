@@ -2,7 +2,7 @@
 
 Tareas pendientes:
 
-1.- Crear petición Rest tipo get desde xxx.js que nos va traer la lista de bicis
+1.- Crear petición Rest tipo get desde xxx.js que nos va traer la lista de bicis <br>
 var fechaDesde='10/03/2021'
 var fechaHasta='15/03/2021'
 $(document).ready(function() {
